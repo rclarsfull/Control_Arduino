@@ -1,11 +1,11 @@
 package com.example.controlarduino;
 
+import android.os.StrictMode;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,39 +14,231 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Scanner eingabe=new Scanner(System.in);
-        EchoServer test=new EchoServer(5000);
-        byte [] data=new byte[255];
-
-
-
-        String ip=;
-
-        int port=;
-
-        String dataStr="";
-    }
-
-
-
-
-    boolean run=true;
-
-        while (run) {
-      //  if (dataStr.equals("stop")){
-        //    run=false;
-       //    break;
-       // }
-        dataStr=eingabe.next();
-        data=dataStr.getBytes();
-
-        try {
-            test.sendUdpPacket(InetAddress.getByName("192.168.178.148"),5000,data);
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-            System.out.println("Fehler");
-            test.stopSocket();
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
         }
 
+        final Button schalter1=findViewById(R.id.button9);
+        final Button schalter2=findViewById(R.id.button10);
+        final Button schalter3=findViewById(R.id.button11);
+        final Button schalter4=findViewById(R.id.button12);
+        final Button schalter5=findViewById(R.id.button19);
+        final Button schalter6=findViewById(R.id.button20);
+        final Button schalter7=findViewById(R.id.button21);
+        final Button schalter8=findViewById(R.id.button22);
+
+        final EditText iPAdressF=findViewById(R.id.iPAdressF2);
+
+
+        final boolean[] pressd = {false,false,false,false,false,false,false,false};
+
+        //final int port=Integer.parseInt(String.valueOf(portF.getText()));
+        final Server server=new Server(5000);
+
+
+
+
+
+
+
+        schalter1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
+
+                if (pressd[0]){
+                    dataStr="1LOW";
+                    data=dataStr.getBytes();
+                    pressd[0] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="1HIGH";
+                    data=dataStr.getBytes();
+                    pressd[0] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
+
+            }
+        });
+
+        schalter2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
+
+                if (pressd[1]){
+                    dataStr="2LOW";
+                    data=dataStr.getBytes();
+                    pressd[1] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="2HIGH";
+                    data=dataStr.getBytes();
+                    pressd[1] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
+
+            }
+        });
+
+        schalter3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
+
+                if (pressd[2]){
+                    dataStr="3LOW";
+                    data=dataStr.getBytes();
+                    pressd[2] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="3HIGH";
+                    data=dataStr.getBytes();
+                    pressd[2] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
+            }
+        });
+
+        schalter4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
+
+                if (pressd[3]){
+                    dataStr="4LOW";
+                    data=dataStr.getBytes();
+                    pressd[3] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="4HIGH";
+                    data=dataStr.getBytes();
+                    pressd[3] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
+
+            }
+        });
+
+        schalter5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
+
+                if (pressd[4]){
+                    dataStr="5LOW";
+                    data=dataStr.getBytes();
+                    pressd[4] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="5HIGH";
+                    data=dataStr.getBytes();
+                    pressd[4] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
+            }
+        });
+
+        schalter6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
+
+                if (pressd[5]){
+                    dataStr="6LOW";
+                    data=dataStr.getBytes();
+                    pressd[5] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="6HIGH";
+                    data=dataStr.getBytes();
+                    pressd[5] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
+            }
+        });
+
+
+        schalter7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
+
+                if (pressd[6]){
+                    dataStr="7LOW";
+                    data=dataStr.getBytes();
+                    pressd[6] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="7HIGH";
+                    data=dataStr.getBytes();
+                    pressd[6] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
+            }
+        });
+
+        schalter8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
+
+                if (pressd[7]){
+                    dataStr="ELOW";
+                    data=dataStr.getBytes();
+                    pressd[7] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="EHIGH";
+                    data=dataStr.getBytes();
+                    pressd[7] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
+
+            }
+        });
+
+
     }
+
+
+
 }
