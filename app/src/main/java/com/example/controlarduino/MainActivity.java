@@ -19,27 +19,50 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+        final Button schalter0=findViewById(R.id.button9);
+        final Button schalter1=findViewById(R.id.button10);
+        final Button schalter2=findViewById(R.id.button11);
+        final Button schalter3=findViewById(R.id.button12);
+        final Button schalter4=findViewById(R.id.button19);
+        final Button schalter5=findViewById(R.id.button20);
+        final Button schalter6=findViewById(R.id.button21);
+        final Button schalter7=findViewById(R.id.button23);
 
-        final Button schalter1=findViewById(R.id.button9);
-        final Button schalter2=findViewById(R.id.button10);
-        final Button schalter3=findViewById(R.id.button11);
-        final Button schalter4=findViewById(R.id.button12);
-        final Button schalter5=findViewById(R.id.button19);
-        final Button schalter6=findViewById(R.id.button20);
-        final Button schalter7=findViewById(R.id.button21);
-        final Button schalter8=findViewById(R.id.button22);
+        final Button schalterE=findViewById(R.id.button24);
 
         final EditText iPAdressF=findViewById(R.id.iPAdressF2);
 
 
-        final boolean[] pressd = {false,false,false,false,false,false,false,false};
+        final boolean[] pressd = {false,false,false,false,false,false,false,false,false};
 
         //final int port=Integer.parseInt(String.valueOf(portF.getText()));
         final Server server=new Server(5000);
 
 
 
+        schalter0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
 
+                if (pressd[0]){
+                    dataStr="0LOW";
+                    data=dataStr.getBytes();
+                    pressd[0] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="0HIGH";
+                    data=dataStr.getBytes();
+                    pressd[0] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
+
+            }
+        });
 
 
 
@@ -51,15 +74,15 @@ public class MainActivity extends AppCompatActivity {
                 String ip= String.valueOf(iPAdressF.getText());
                 String dataStr="";
 
-                if (pressd[0]){
+                if (pressd[1]){
                     dataStr="1LOW";
                     data=dataStr.getBytes();
-                    pressd[0] =false;
+                    pressd[1] =false;
                     System.out.println("True");
                 } else {
                     dataStr="1HIGH";
                     data=dataStr.getBytes();
-                    pressd[0] =true;
+                    pressd[1] =true;
                     System.out.println("false");
                 }
 
@@ -76,15 +99,15 @@ public class MainActivity extends AppCompatActivity {
                 String ip= String.valueOf(iPAdressF.getText());
                 String dataStr="";
 
-                if (pressd[1]){
+                if (pressd[2]){
                     dataStr="2LOW";
                     data=dataStr.getBytes();
-                    pressd[1] =false;
+                    pressd[2] =false;
                     System.out.println("True");
                 } else {
                     dataStr="2HIGH";
                     data=dataStr.getBytes();
-                    pressd[1] =true;
+                    pressd[2] =true;
                     System.out.println("false");
                 }
 
@@ -101,15 +124,15 @@ public class MainActivity extends AppCompatActivity {
                 String ip= String.valueOf(iPAdressF.getText());
                 String dataStr="";
 
-                if (pressd[2]){
+                if (pressd[3]){
                     dataStr="3LOW";
                     data=dataStr.getBytes();
-                    pressd[2] =false;
+                    pressd[3] =false;
                     System.out.println("True");
                 } else {
                     dataStr="3HIGH";
                     data=dataStr.getBytes();
-                    pressd[2] =true;
+                    pressd[3] =true;
                     System.out.println("false");
                 }
 
@@ -125,15 +148,15 @@ public class MainActivity extends AppCompatActivity {
                 String ip= String.valueOf(iPAdressF.getText());
                 String dataStr="";
 
-                if (pressd[3]){
+                if (pressd[4]){
                     dataStr="4LOW";
                     data=dataStr.getBytes();
-                    pressd[3] =false;
+                    pressd[4] =false;
                     System.out.println("True");
                 } else {
                     dataStr="4HIGH";
                     data=dataStr.getBytes();
-                    pressd[3] =true;
+                    pressd[4] =true;
                     System.out.println("false");
                 }
 
@@ -149,15 +172,15 @@ public class MainActivity extends AppCompatActivity {
                 String ip= String.valueOf(iPAdressF.getText());
                 String dataStr="";
 
-                if (pressd[4]){
+                if (pressd[5]){
                     dataStr="5LOW";
                     data=dataStr.getBytes();
-                    pressd[4] =false;
+                    pressd[5] =false;
                     System.out.println("True");
                 } else {
                     dataStr="5HIGH";
                     data=dataStr.getBytes();
-                    pressd[4] =true;
+                    pressd[5] =true;
                     System.out.println("false");
                 }
 
@@ -172,15 +195,15 @@ public class MainActivity extends AppCompatActivity {
                 String ip= String.valueOf(iPAdressF.getText());
                 String dataStr="";
 
-                if (pressd[5]){
+                if (pressd[6]){
                     dataStr="6LOW";
                     data=dataStr.getBytes();
-                    pressd[5] =false;
+                    pressd[6] =false;
                     System.out.println("True");
                 } else {
                     dataStr="6HIGH";
                     data=dataStr.getBytes();
-                    pressd[5] =true;
+                    pressd[6] =true;
                     System.out.println("false");
                 }
 
@@ -196,45 +219,50 @@ public class MainActivity extends AppCompatActivity {
                 String ip= String.valueOf(iPAdressF.getText());
                 String dataStr="";
 
-                if (pressd[6]){
-                    dataStr="7LOW";
-                    data=dataStr.getBytes();
-                    pressd[6] =false;
-                    System.out.println("True");
-                } else {
-                    dataStr="7HIGH";
-                    data=dataStr.getBytes();
-                    pressd[6] =true;
-                    System.out.println("false");
-                }
-
-                server.run(ip,data);
-            }
-        });
-
-        schalter8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                byte [] data=new byte[255];
-                String ip= String.valueOf(iPAdressF.getText());
-                String dataStr="";
-
                 if (pressd[7]){
-                    dataStr="ELOW";
+                    dataStr="7LOW";
                     data=dataStr.getBytes();
                     pressd[7] =false;
                     System.out.println("True");
                 } else {
-                    dataStr="EHIGH";
+                    dataStr="7HIGH";
                     data=dataStr.getBytes();
                     pressd[7] =true;
                     System.out.println("false");
                 }
 
                 server.run(ip,data);
+            }
+        });
+
+
+
+
+        schalterE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte [] data=new byte[255];
+                String ip= String.valueOf(iPAdressF.getText());
+                String dataStr="";
+
+                if (pressd[8]){
+                    dataStr="ELOW";
+                    data=dataStr.getBytes();
+                    pressd[8] =false;
+                    System.out.println("True");
+                } else {
+                    dataStr="EHIGH";
+                    data=dataStr.getBytes();
+                    pressd[8] =true;
+                    System.out.println("false");
+                }
+
+                server.run(ip,data);
 
             }
         });
+
+
 
 
     }

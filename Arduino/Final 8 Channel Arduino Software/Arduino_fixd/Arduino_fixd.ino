@@ -60,6 +60,15 @@ if (packetSize)
   {
     incomingPacket[len] = '\0';
     Serial.println(incomingPacket);
+
+     if(((String)incomingPacket)=="0"+aus){
+       Serial.println("0-"+aus);
+       digitalWrite(D0,LOW);
+    } 
+    if(((String)incomingPacket)=="0"+an){
+       Serial.println("0-"+an);
+       digitalWrite(D0,HIGH);
+    }
     
     if(((String)incomingPacket)=="1"+aus){
        Serial.println("1-"+aus);
