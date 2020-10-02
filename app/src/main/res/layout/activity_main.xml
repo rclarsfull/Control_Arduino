@@ -10,10 +10,9 @@
             android:text="Error Test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button24"
-            app:layout_constraintTop_toTopOf="@+id/button21"
-            android:layout_marginTop="88dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.781"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/alleButton" app:layout_constraintVertical_bias="0.0"/>
     <androidx.constraintlayout.widget.Guideline
             android:orientation="vertical"
             android:layout_width="wrap_content"
@@ -71,15 +70,22 @@
             android:layout_height="wrap_content" android:id="@+id/button21"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/button23"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="128dp"/>
+            app:layout_constraintBottom_toTopOf="@+id/alleButton" android:layout_marginBottom="40dp"/>
+    <Button
+            android:text="alle"
+            android:layout_width="104dp"
+            android:layout_height="51dp" android:id="@+id/alleButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="24dp"
+            app:layout_constraintEnd_toStartOf="@+id/button24"/>
     <Button
             android:text="Schalter 8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button23"
             app:layout_constraintStart_toEndOf="@+id/button21"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="128dp"
-            app:layout_constraintTop_toTopOf="@+id/button21" app:layout_constraintVertical_bias="1.0"/>
+            app:layout_constraintTop_toTopOf="@+id/button21" app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/alleButton"/>
     <Button
             android:text="Schalter 5"
             android:layout_width="wrap_content"
