@@ -375,7 +375,10 @@ public class MainActivity extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    pressd[9] =false;
+
+                    for (boolean p:pressd){
+                        p=false;
+                    }
                     System.out.println("True");
 
                 } else {
@@ -460,7 +463,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                    pressd[9] =true;
+
+                    for (boolean p:pressd){
+                        p=true;
+                    }
                     System.out.println("false");
                 }
 
